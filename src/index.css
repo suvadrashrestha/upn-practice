@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --back: #ec8282;
+}
+
+.dark {
+  --back: #242424;
+}
+
+@theme inline {
+  --color-back: var(--back);
+}
