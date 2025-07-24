@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
-const GITHUB_TOKEN = "Bearer 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";
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 export const useGitHubUser = (username: string) => {
   const [user, setUser] = useState<any>(null);
@@ -17,7 +17,7 @@ export const useGitHubUser = (username: string) => {
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`, {
         headers: {
-          Authorization: GITHUB_TOKEN,
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
         },
       });
       setUser(response.data);

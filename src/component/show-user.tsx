@@ -1,10 +1,11 @@
 import { useState, Suspense } from "react";
 import { useDebounce } from "use-debounce";
-import { ErrorBoundary } from "react-error-boundary";
 import { useGitHubUser } from "../hook/useGetGithubUser";
+import ErrorFallback from "./errpr";
+import { ErrorBoundary } from "react-error-boundary";
 import Loading from "./loading";
 import GitHubUserCard from "./github-user-card";
-import ErrorFallback from "./errpr";
+
 
 const ShowUser = () => {
   const [username, setUsername] = useState("");
